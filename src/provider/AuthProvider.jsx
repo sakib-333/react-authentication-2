@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  TwitterAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
@@ -17,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const providerGoogle = new GoogleAuthProvider();
   const providerGithub = new GithubAuthProvider();
+  const providerTwitter = new TwitterAuthProvider();
 
   const signupUser = (email, password) => {
     setLoading(true);
@@ -27,6 +29,9 @@ const AuthProvider = ({ children }) => {
   };
   const signinUserWithGithub = () => {
     return signInWithPopup(auth, providerGithub);
+  };
+  const signinUserWithTwitter = () => {
+    return signInWithPopup(auth, providerTwitter);
   };
   const signinUser = (email, password) => {
     setLoading(true);
@@ -52,6 +57,7 @@ const AuthProvider = ({ children }) => {
     signinUser,
     signinUserWithGoogle,
     signinUserWithGithub,
+    signinUserWithTwitter,
     signoutUser,
   };
   return (

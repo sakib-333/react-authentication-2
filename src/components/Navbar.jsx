@@ -10,8 +10,10 @@ const Navbar = () => {
   const [avatar, setAvatar] = useState(defaultAvatar);
   const { user, setUser, signoutUser } = useContext(AuthContext);
   useEffect(() => {
+    console.log(user);
+
     if (user?.photoURL) {
-      setAvatar(user?.photoURL);
+      setAvatar(user.photoURL);
     }
   }, [user]);
   const handleLogoutUser = () => {

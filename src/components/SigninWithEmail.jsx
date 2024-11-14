@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const SigninWithEmail = () => {
-  const { signinUser, setLoading } = useContext(AuthContext);
+  const { user, signinUser, setLoading } = useContext(AuthContext);
 
   const handleSignin = (e) => {
     e.preventDefault();
